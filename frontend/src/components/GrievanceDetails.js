@@ -33,7 +33,10 @@ const GrievanceDetails = ({ grievance }) => {
                 maxWidth:"80%"
             }}/> */}
             <p><strong>Description:</strong> {grievance.description}</p>
-            <p>{formatDistanceToNow(new Date(grievance.createdAt), { addSuffix: true })}</p>
+            <p><strong>User Type:</strong> {grievance.userType}</p>
+            <p><strong>Department:</strong> {grievance.department}</p>
+            <p><strong>Category:</strong> {grievance.category}</p>
+            <p className="posted-time">{formatDistanceToNow(new Date(grievance.createdAt), { addSuffix: true })}</p>
             {user && (
                 <span className="material-symbols-outlined" onClick={handleClick}>Delete</span>
             )}

@@ -33,7 +33,7 @@ const Home = () => {
     <div className="home">
       <GrievanceForm /> {/* Replace with your GrievanceForm component */}
       <div className="grievances">
-      <h3>Grievances</h3>
+      <h3>Your Grievances</h3>
       <hr />
         {grievances && grievances.map((grievance) => (
           <GrievanceDetails key={grievance._id} grievance={grievance} /> 

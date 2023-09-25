@@ -10,6 +10,18 @@ const grievanceSchema = new Schema({
         type: String,
         required: true
     },
+    userType: {
+        type :String ,
+        required: true
+    },
+    department: {
+        type :String ,
+        required: true
+    },
+    category: {
+        type :String ,
+        required: true
+    },
     user_id: {
         type: String,
         required: true

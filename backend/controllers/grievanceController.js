@@ -33,7 +33,7 @@ const getGrievance = async (req, res) => {
 // POST (create) a new Grievance
 const createGrievance = async (req, res) => {
     // All requests are passed to req using middleware in the server
-    const { title, description } = req.body;
+    const { title, description, userType, department, category } = req.body;
 
     let emptyFields = [];
 
@@ -43,6 +43,15 @@ const createGrievance = async (req, res) => {
     if (!description) {
         emptyFields.push('description');
     }
+    if (!userType) {
+        emptyFields.push('userType');
+    }
+    if (!department) {
+        emptyFields.push('department');
+    }
+    if (!category) {
+        emptyFields.push('category');
+    }
     if (emptyFields.length > 0) {
         return res.status(400).json({ error: `Please fill out ${emptyFields}`, emptyFields });
     }
@@ -51,7 +60,7 @@ const createGrievance = async (req, res) => {
     // Add the document to the database
     try {
         const user_id = req.user._id;
-        const grievance = await Grievance.create({ title, description, user_id });
+        const grievance = await Grievance.create({ title, description, userType, department, category, user_id });
         res.status(200).json(grievance);
     } catch (error) {
         res.status(400).json({ error: error.message });
