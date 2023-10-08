@@ -31,7 +31,9 @@ const Home = () => {
 
   return (
     <div className="home">
+      <div className="grievanceForm">
       <GrievanceForm /> {/* Replace with your GrievanceForm component */}
+      </div>
       <div className="grievances">
       <h3>Your Grievances</h3>
       <hr />

@@ -40,6 +40,9 @@ const GrievanceDetails = ({ grievance }) => {
             {user && (
                 <span className="material-symbols-outlined" onClick={handleClick}>Delete</span>
             )}
+            <hr />
+            <p><strong>Status:</strong> {grievance.status}</p>
+            <p><strong>Response:</strong> {grievance.reply}</p>
         </div>
     );
 }
