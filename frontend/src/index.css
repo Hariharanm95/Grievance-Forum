@@ -13,12 +13,14 @@ body {
 }
 header {
   background: var(--primary);
+  padding: 10px 0;
 }
 header .container {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 0 20px;
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
   align-items: center;
   justify-content: space-between;
 }
@@ -37,18 +39,19 @@ header a {
   display: grid;
   grid-template-columns: 1.2fr 2.8fr;
   gap: 100px;
+  overflow: hidden;
 }
 .grievance-details {
   background: #fff;
   border-radius: 4px;
   margin: 20px auto;
-  padding: 50px;
+  padding: 20px;
   position: relative;
   box-shadow: 9px 9px 12px rgba(0,0,0,0.05);
 }
 .grievance-details h4 {
-  margin: 0 0 15px 0;
-  font-size: 1.2em;
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
   color: var(--primary);
 }
 .grievance-details p {
@@ -58,7 +61,8 @@ header a {
 }
 .grievance-details span {
   position: absolute;
-  top: 20px;
+  display: block; /* Make the span a block element */
+  top: 10px;
   right: 20px;
   cursor: pointer;
   background: #f1f1f1;
@@ -72,6 +76,8 @@ header a {
 
 
 /* new workout form */
+
+
 label, input {
   display: block;
 }
@@ -103,6 +109,19 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+
+/* Add media queries for larger screens */
+@media (min-width: 768px) {
+  .grievance-details {
+    padding: 50px; /* Restore padding for larger screens */
+  }
+
+  .grievance-details h4 {
+    font-size: 1.2em; /* Restore font size for larger screens */
+  }
+
+  /* Adjust other styles as needed for larger screens */
 }
 
 /* navbar */
@@ -166,7 +185,28 @@ form > select {
 .grievanceForm{
   background: #242b37;
   padding: 20px;
-  max-height: 650px;
   border-radius: 10px;
   color: white;
+  position: sticky;
+  top: 20px; /* Adjust as needed for the desired fixed position */
+  height: calc(100vh - 200px); /* Calculate the height to fill the viewport minus padding */
+  overflow-y: auto; /* Add vertical scroll for content exceeding the height */
+}
+
+/* Adjust the scrollbar width and add gap */
+.grievances::-webkit-scrollbar {
+  width: 4px; /* Adjust the scrollbar width as needed */
+  background-color: transparent; /* Set the background color of the scrollbar track */
+}
+
+/* Style the scrollbar thumb */
+.grievances::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 3px; /* Make the scrollbar thumb rounded */
+}
+
+.grievances {
+  max-height: calc(100vh - 150px); /* Calculate the maximum height for the grievances section */
+  overflow-y: auto; /* Add vertical scroll for content exceeding the height */
+  padding-right: 10px;
 }
